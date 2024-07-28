@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LeagueSpartan";
+  src: url("../assets/fonts/LeagueSpartan-Light.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LeagueSpartan";
+  src: url("../assets/fonts/LeagueSpartan-Medium.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LeagueSpartan";
+  src: url("../assets/fonts/LeagueSpartan-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LeagueSpartan";
+  src: url("../assets/fonts/LeagueSpartan-SemiBold.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
