@@ -14,6 +14,7 @@ body {
   width: 100%;
   max-width: 1450px;
   margin: 0 auto;
+  padding-inline: 15px;
 }
 
 /*=============================================== header =================================================*/
@@ -90,12 +91,17 @@ nav {
 
 .get_started {
   border-radius: 10px;
-  padding: 13px 21px;
+  padding: 14px 21px;
   background: #008000;
   font-weight: 500;
   font-size: 18px;
   color: #fff;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.get_started:hover {
+  background-color: #00b300;
 }
 
 /*=============================================== intro =================================================*/
@@ -104,7 +110,59 @@ nav {
   margin-bottom: 200px;
 }
 
+.decoration_header {
+  position: absolute;
+  top: 0;
+}
+
+.decorations {
+  position: absolute;
+}
+
+.star_1 {
+  position: absolute;
+  top: 245px;
+  left: 237px;
+}
+
+.dollar_1 {
+  position: absolute;
+  top: 440px;
+  left: 8.22px;
+}
+
+.ellipse_1 {
+  position: absolute;
+  top: 565px;
+  left: 340px;
+}
+
+.dollar_2 {
+  position: absolute;
+  top: -60px;
+  left: 1000px;
+}
+
+.ellipse_2 {
+  position: absolute;
+  top: 205px;
+  left: 1200px;
+}
+
+.star_2 {
+  position: absolute;
+  top: 632px;
+  left: 1205px;
+}
+
+.naira {
+  position: absolute;
+  top: 231px;
+  left: 1410px;
+}
+
 .intro_inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,6 +221,11 @@ form input {
   font-size: 18px;
   color: #fff;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mail_btn:hover {
+  background-color: #00b300;
 }
 
 .sponsors-container {
@@ -216,36 +279,6 @@ form input {
   color: #263238;
   margin-bottom: 32px;
 }
-
-/**.typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  animation:
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0
-  }
-
-  to {
-    width: 100%
-  }
-}
-
-@keyframes blink-caret {
-
-  from,
-  to {
-    border-color: transparent
-  }
-
-  50% {
-    border-color: orange;
-  }
-}**/
 
 .works_title span {
   color: #008000;
@@ -481,6 +514,11 @@ form input {
   font-weight: 500;
   font-size: 18px;
   color: #fff;
+  transition: all 0.3s ease;
+}
+
+.learnmore_link:hover {
+  background-color: #00b300;
 }
 
 /*============================================== customers ==============================================*/
@@ -512,7 +550,7 @@ form input {
   margin: 0 auto;
   letter-spacing: 0.15em;
   animation:
-    typing 3.5s steps(40, end),
+    typing 3.5s steps(40, end) infinite,
     blink-caret 0.75s step-end infinite;
 }
 
@@ -606,6 +644,11 @@ form input {
   display: block;
   text-align: center;
   margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.view_link:hover {
+  background-color: #00b300;
 }
 
 /*============================================== footer-app =============================================*/
@@ -716,6 +759,11 @@ form input {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.socials_icons a:hover {
+  background-color: #00b300;
 }
 
 .socials_text {
@@ -773,3 +821,11 @@ form input {
 
 /*============================================== theme ==================================================*/
 @media screen and (prefers-color-scheme: dark) {}
+
+/*============================================== responsive =============================================*/
+
+@media screen and (max-width: 1300px) {
+  nav {
+    display: none;
+  }
+}
