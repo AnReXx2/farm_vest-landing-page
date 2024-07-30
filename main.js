@@ -36,3 +36,14 @@ items.forEach((item) => {
     trigger.nextElementSibling.classList.toggle("active");
   });
 });
+
+// burger-menu
+let burgerMenu = document.querySelector(".burger");
+let menu = document.querySelector("nav");
+let body = document.querySelector("body");
+
+burgerMenu.onclick = () => {
+  burgerMenu.classList.toggle("active");
+  menu.classList.toggle("active");
+  body.classList.toggle("no-scroll");
+};

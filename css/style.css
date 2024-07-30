@@ -10,6 +10,10 @@ body {
   font-family: "LeagueSpartan", "Roboto", "Lato", sans-serif;
 }
 
+.no-scroll {
+  overflow-y: hidden;
+}
+
 .container {
   width: 100%;
   max-width: 1450px;
@@ -38,8 +42,8 @@ header {
 
 nav {
   display: flex;
-  align-items: center;
-  gap: 200px;
+  justify-content: center;
+  gap: 220px;
 }
 
 .nav_list {
@@ -104,7 +108,53 @@ nav {
   background-color: #00b300;
 }
 
-/*=============================================== intro =================================================*/
+.burger {
+  position: relative;
+  width: 34px;
+  height: 30px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+
+.burger_item {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  display: block;
+  transition: all 0.5s ease;
+}
+
+.burger_item:nth-child(1) {
+  transform-origin: left top;
+  top: 0;
+}
+
+.burger_item:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger_item:nth-child(3) {
+  bottom: 0;
+  transform-origin: left bottom;
+}
+
+.burger.active .burger_item:nth-child(1) {
+  transform: rotate(45deg) translate3d(1px, 2px, 0);
+}
+
+.burger.active .burger_item:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active .burger_item:nth-child(3) {
+  transform: rotate(-45deg) translate3d(1px, -2px, 0);
+}
+
+/*============================================== intro =================================================*/
 
 .intro {
   margin-bottom: 200px;
@@ -117,6 +167,8 @@ nav {
 
 .decorations {
   position: absolute;
+  width: 100%;
+  max-width: 1400px;
 }
 
 .star_1 {
@@ -158,10 +210,12 @@ nav {
 .naira {
   position: absolute;
   top: 231px;
-  left: 1410px;
+  left: 1390px;
 }
 
 .intro_inner {
+  width: 100%;
+  max-width: 1400px;
   position: relative;
   display: flex;
   align-items: center;
@@ -170,7 +224,8 @@ nav {
 }
 
 .intro_title {
-  width: 923px;
+  width: 100%;
+  max-width: 923px;
   font-weight: 700;
   font-size: 70px;
   text-align: center;
@@ -183,7 +238,8 @@ nav {
 }
 
 .intro_text {
-  width: 725px;
+  width: 100%;
+  max-width: 725px;
   font-weight: 400;
   font-size: 18px;
   line-height: 180%;
@@ -195,9 +251,11 @@ nav {
 form {
   width: 100%;
   max-width: 533px;
-  height: 76px;
+  height: auto;
   border-radius: 10px;
   background: rgba(38, 50, 56, 0.1);
+  display: flex;
+  align-items: center;
 }
 
 form input {
@@ -207,13 +265,15 @@ form input {
   outline: none;
   border: none;
   background: none;
-  padding: 28px 94px 28px 25px;
+  padding: 14px;
+  flex: 1;/
 }
 
 .mail_btn {
   border-radius: 10px;
   padding: 13px 25px;
-  width: 163px;
+  width: 100%;
+  max-width: 163px;
   height: 64px;
   background: #008000;
   border: none;
@@ -221,6 +281,7 @@ form input {
   font-size: 18px;
   color: #fff;
   cursor: pointer;
+  flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
@@ -228,38 +289,62 @@ form input {
   background-color: #00b300;
 }
 
-.sponsors-container {
-  overflow: hidden;
+.logos {
   width: 100%;
-  height: 200px;
+  overflow: hidden;
+  padding: 60px 0;
+  white-space: nowrap;
+  margin-top: 200px;
   position: relative;
 }
 
-.sponsors {
-  margin-top: 200px;
-  display: flex;
-  align-items: center;
-  width: 400%;
-  height: 100%;
-  animation: slide 10s linear infinite;
+.logos:hover .logos-slide {
+  animation-play-state: paused;
 }
 
-.slide {
-  width: 100%;
+.logos::before,
+.logos::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 250px;
   height: 100%;
+  z-index: 2;
+}
+
+.logos::before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos::after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+
+.logos-slide {
+  display: inline-block;
+  animation: 5s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 50px;
+  margin: 0 40px;
 }
 
 @keyframes slide {
-  0% {
-    transform: translateX(0%);
+  from {
+    transform: translateX(0);
   }
 
-  50% {
-    transform: translateX(-70%);
+  to {
+    transform: translateX(-100%);
   }
 }
 
-/*============================================== works ==================================================*/
+
+/*============================================= works ==================================================*/
 
 .works {
   margin-bottom: 200px;
@@ -301,6 +386,7 @@ form input {
 }
 
 .works_instruction {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 32px;
@@ -346,6 +432,10 @@ form input {
   color: #263238;
 }
 
+.img_cont img {
+  width: 100%;
+}
+
 /*============================================== pathway ================================================*/
 
 .pathway {
@@ -356,6 +446,10 @@ form input {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.pathway_img img {
+  width: 100%;
 }
 
 .pathway_title {
@@ -381,6 +475,7 @@ form input {
 }
 
 .pathway_containers {
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -389,15 +484,15 @@ form input {
 
 .accordion-item {
   width: 100%;
+  height: auto;
   max-width: 600px;
-  height: 90px;
   border-radius: 10px;
   background: rgba(0, 128, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  padding: 0 30px;
+  padding: 15px 30px;
 }
 
 .pathway_container-text {
@@ -413,20 +508,16 @@ form input {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  padding-top: 25px;
 }
 
 .accordion-body {
   display: none;
   margin-top: 25px;
-  width: 100%;
   border-radius: 10px;
-  background: rgba(0, 128, 0, 0.05);
 }
 
 .accordion-body.active {
   display: block;
-  max-height: 500px;
 }
 
 /*========================================== learnmore ==================================================*/
@@ -438,6 +529,11 @@ form input {
 .learnmore_inner {
   display: flex;
   justify-content: space-between;
+}
+
+.learnmore img {
+  width: 100%;
+  max-width: 680px;
 }
 
 .learnmore_info {
@@ -593,6 +689,7 @@ form input {
 }
 
 .customers_conts {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 48px;
@@ -609,6 +706,7 @@ form input {
 }
 
 .customers_container-info {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 193px;
@@ -625,6 +723,7 @@ form input {
 }
 
 .customers_container-info span {
+  width: 100%;
   font-weight: 600;
   font-size: 18px;
   line-height: 177%;
@@ -651,14 +750,20 @@ form input {
   background-color: #00b300;
 }
 
-/*============================================== footer-app =============================================*/
+/*============================================= footer-app =============================================*/
 
 .footer_app {
+  width: 100%;
   margin-bottom: 200px;
 }
 
 .footer_app-img {
   position: absolute;
+  padding-right: 15px;
+}
+
+.footer_app-img img {
+  width: 100%;
 }
 
 .footer_app-inner {
@@ -687,6 +792,10 @@ form input {
   display: flex;
   align-items: center;
   gap: 25px;
+}
+
+.store_icons img {
+  width: 100%;
 }
 
 /*============================================== footer =================================================*/
@@ -819,13 +928,323 @@ form input {
   text-decoration: none;
 }
 
-/*============================================== theme ==================================================*/
-@media screen and (prefers-color-scheme: dark) {}
-
 /*============================================== responsive =============================================*/
 
-@media screen and (max-width: 1300px) {
-  nav {
+@media screen and (max-width: 1440px) {
+  .decorations {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .burger {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+    left: -110%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #f0f0f0;
+    z-index: 999;
+    transition: all 0.5s;
+  }
+
+  nav.active {
+    left: 0;
+  }
+
+  .nav_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav_list-item {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+
+  .pathway_inner {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+@media screen and (max-width: 1340px) {
+  .footer_app-title {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+
+  .intro {
+    margin-bottom: 80px;
+  }
+
+  .works_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .works_title {
+    font-size: 50px;
+  }
+
+  .works_text {
+    font-size: 16px;
+  }
+
+  .works_instruction-title {
+    font-size: 16px;
+  }
+
+  .works_instruction-text {
+    font-size: 14px;
+  }
+
+  .customers_conts {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .sponsors {
+    animation: slide 30s linear infinite;
+  }
+
+  .pathway {
+    margin-bottom: 150px;
+  }
+
+  .learnmore_inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 55px;
+  }
+
+  .footer_app-title {
+    margin: 40px 0 45px;
+  }
+
+  .footer_main {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .customers_title {
+    font-size: 40px;
+  }
+
+  .customers_text {
+    font-size: 16px;
+  }
+
+  .footer_app-title {
+    font-size: 30px;
+    margin: 30px 0 35px;
+  }
+
+  .store_icons img {
+    width: 150px;
+  }
+
+}
+
+
+@media screen and (max-width: 835px) {
+  .intro_title {
+    font-size: 50px;
+  }
+
+  .intro_text {
+    font-size: 14px;
+  }
+
+  .footer_app-title {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slide {
+    min-width: 150px;
+  }
+
+  .customers_container-info p {
+    font-size: 16px;
+  }
+
+  .learnmore {
+    margin-bottom: 150px;
+  }
+
+  .footer_app-title {
+    font-size: 20px;
+  }
+
+  .store_icons img {
+    width: 100px;
+  }
+
+  .copyright_cont {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .pathway_title {
+    font-size: 50px;
+  }
+
+  .pathway_text {
+    font-size: 16px;
+  }
+
+  .pathway_container-text {
+    font-size: 16px;
+  }
+
+  .learnmore_title {
+    font-size: 55px;
+  }
+
+  .learnmore_text {
+    font-size: 16px;
+  }
+
+  .learnmore_container-text {
+    font-size: 16px;
+  }
+
+  .learnmore_link {
+    padding: 15px 45px;
+  }
+
+  .customers_container-info p {
+    font-size: 14px;
+  }
+
+  .customers_container-info span {
+    font-size: 16px;
+  }
+
+  .footer_app-title {
+    font-size: 14px;
+    margin: 20px 0 25px;
+  }
+
+  .legal-cont {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .customers_container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .customers_container-info p {
+    font-size: 12px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .customers_container-info span {
+    text-align: center;
+  }
+
+  .customers_title {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+
+  .decoration_header img {
+    width: 100%;
+    padding-right: 15px;
+  }
+
+  form input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .mail_btn {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  form {
+    height: auto;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slide {
+    min-width: 100px;
+  }
+
+  .footer_app-title {
+    margin: 15px 0 20px;
+  }
+
+  .store_icons img {
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .mail_btn {
+    max-width: 110px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .mail_btn {
+    max-width: 100px;
+  }
+
+  .footer_app-title {
+    font-size: 10px;
+  }
+
+  .store_icons img {
+    width: 80px;
+  }
+
+  .view_link {
+    max-width: 190px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .mail_btn {
+    max-width: 80px;
+    font-size: 12px;
   }
 }
